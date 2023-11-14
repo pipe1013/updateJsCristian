@@ -6,13 +6,13 @@ const bootcampSchema = new mongoose.Schema ({
     name: {
         type: String,
         unique : true,
-        required : [true , "El bootcam ya esta repetido" ],
+        required : [true , "Se requiere nombre de bootcamp" ],
         maxlength: [20 , "El nombre solo debe tener 20 caracteres"]
     },
     phone: {
         type: Number,
-        required : [true , "El bootcam ya esta repetido" ],
-        maxlength: [10 , "El nombre solo debe tener 10 caracteres"]
+        required : [true , "Se requiere telefono de bootcamp" ],
+        max: [9999999999 , "El telefono solo debe tener 10 caracteres"]
     },
     address: {
         type: String,
@@ -22,14 +22,14 @@ const bootcampSchema = new mongoose.Schema ({
         type:[String],
         enum:["AI" ,
               "Backend",
-              "Frontend",
+              "Backend",
               "Devops"
             ]
     },
     averageRating: Number,
     createdAt:{
         type: Date,
-        required: [true, "Debe ingresar fecha de creación"]
+        default: Date.now
     }
 })
 
